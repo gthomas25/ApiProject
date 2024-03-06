@@ -25,7 +25,7 @@ public class api implements ActionListener {
     private JFrame mainFrame;
 
     public int counter = 0;
-    private JTextArea pokemon, allies;
+    private JTextArea GameofThrones, Name;
     private int WIDTH = 800;
     private int HEIGHT = 700;
 
@@ -70,20 +70,21 @@ public class api implements ActionListener {
         System.out.println(jsonArray);
 
         try {
-            System.out.println(jsonArray.get(0));
-            JSONObject secretTunnelGuy = (JSONObject) jsonArray.get(0);
-            System.out.println(secretTunnelGuy.get("firstName"));
-            org.json.simple.JSONArray secretTunnelGuyAllies = (JSONArray) secretTunnelGuy.get("allies");
-            System.out.println(secretTunnelGuyAllies.get(0));
+            for (int i = 0; i < jsonArray.size(); i++) {
+                System.out.println(jsonArray.get(i));
+                JSONObject secretTunnelGuy = (JSONObject) jsonArray.get(i);
+                System.out.println(secretTunnelGuy.get("firstName"));
+                System.out.println(secretTunnelGuy.get("title"));
 
+            }
 
             //put this in a for loop
             //  for ()
-            System.out.println(jsonArray.get(1));
-            JSONObject guy2 = (JSONObject) jsonArray.get(1);
-            System.out.println(guy2.get("name"));
-            org.json.simple.JSONArray guy2Alliess = (JSONArray) secretTunnelGuy.get("allies");
-            System.out.println(guy2Alliess.get(0));
+//            System.out.println(jsonArray.get(1));
+//            JSONObject guy2 = (JSONObject) jsonArray.get(1);secretTunnelGuyAllies
+//            System.out.println(guy2.get("name"));
+//            org.json.simple.JSONArray guy2Alliess = (JSONArray) secretTunnelGuy.get("allies");
+//            System.out.println(guy2Alliess.get(0));
 
 
             //   String name = (String)jsonArray.get("name")
@@ -141,11 +142,11 @@ public class api implements ActionListener {
         previousButton.addActionListener(new ButtonClickListener());
 
 
-        pokemon = new JTextArea("Pokemon");
-        allies = new JTextArea("Allies");
+        GameofThrones = new JTextArea("Game of Thrones");
+        Name = new JTextArea("Names");
 
-        mainFrame.add(pokemon);
-        mainFrame.add(allies);
+        mainFrame.add(GameofThrones);
+        mainFrame.add(Name);
         mainFrame.add(nextButton);
         mainFrame.add(previousButton);
 
@@ -169,13 +170,13 @@ public class api implements ActionListener {
                     counter = 0;
                 }
 
-                pokemon.setText("");
-                allies.setText("");
+                GameofThrones.setText("");
+                Name.setText("");
                 System.out.println(jsonArray.get(counter));
                 JSONObject secretTunnelGuy = (JSONObject) jsonArray.get(counter);
-                pokemon.append((String) secretTunnelGuy.get("name"));
-                org.json.simple.JSONArray secretTunnelGuyAllies = (JSONArray) secretTunnelGuy.get("allies");
-                allies.append((String) secretTunnelGuyAllies.get(0));
+                GameofThrones.append((String) secretTunnelGuy.get("name"));
+               // org.json.simple.JSONArray secretTunnelGuyAllies = (JSONArray) secretTunnelGuy.get("allies");
+              //  GameofThrones.append((String) secretTunnelGuyAllies.get(0));
 
                 //pokemon.setText("next");
                 //allies.setText("next");
@@ -187,14 +188,14 @@ public class api implements ActionListener {
                 }
 
 
-                pokemon.setText("");
-                allies.setText("");
+                GameofThrones.setText("");
+                Name.setText("");
 
                 System.out.println(jsonArray.get(counter));
                 JSONObject secretTunnelGuy = (JSONObject) jsonArray.get(counter);
-                pokemon.append((String) secretTunnelGuy.get("name"));
+                GameofThrones.append((String) secretTunnelGuy.get("name"));
                 org.json.simple.JSONArray secretTunnelGuyAllies = (JSONArray) secretTunnelGuy.get("allies");
-                allies.append((String) secretTunnelGuyAllies.get(0));
+                Name.append((String) secretTunnelGuyAllies.get(0));
                 //  statusLabel.setText("GO.");
                 //pokemon.setText("previous");
                 //allies.setText("previous");
