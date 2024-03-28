@@ -169,13 +169,18 @@ public class api implements ActionListener {
                 if (counter > jsonArray.size() - 1) {
                     counter = 0;
                 }
-
+System.out.println("next clicked");
                 GameofThrones.setText("");
                 Name.setText("");
                 System.out.println(jsonArray.get(counter));
                 JSONObject secretTunnelGuy = (JSONObject) jsonArray.get(counter);
-                GameofThrones.append((String) secretTunnelGuy.get("name"));
-               // org.json.simple.JSONArray secretTunnelGuyAllies = (JSONArray) secretTunnelGuy.get("allies");
+                System.out.println((String) secretTunnelGuy.get("firstName"));
+                GameofThrones.append((String) secretTunnelGuy.get("title"));
+                Name.append((String) secretTunnelGuy.get("firstName"));
+
+
+
+                // org.json.simple.JSONArray secretTunnelGuyAllies = (JSONArray) secretTunnelGuy.get("allies");
               //  GameofThrones.append((String) secretTunnelGuyAllies.get(0));
 
                 //pokemon.setText("next");
@@ -186,17 +191,19 @@ public class api implements ActionListener {
                 if (counter < 0) {
                     counter = 19;
                 }
+                System.out.println(counter);
 
 
                 GameofThrones.setText("");
                 Name.setText("");
-
                 System.out.println(jsonArray.get(counter));
                 JSONObject secretTunnelGuy = (JSONObject) jsonArray.get(counter);
                 GameofThrones.append((String) secretTunnelGuy.get("name"));
                 org.json.simple.JSONArray secretTunnelGuyAllies = (JSONArray) secretTunnelGuy.get("allies");
                 Name.append((String) secretTunnelGuyAllies.get(0));
-                //  statusLabel.setText("GO.");
+                System.out.println((String) secretTunnelGuy.get("firstName"));
+                GameofThrones.append((String) secretTunnelGuy.get("title"));
+                Name.append((String) secretTunnelGuy.get("firstName"));
                 //pokemon.setText("previous");
                 //allies.setText("previous");
             } else if (command.equals("Cancel")) {
